@@ -1,0 +1,16 @@
+
+This planning agent implements the same functions as SearchAgent.java. It uses the same techniques to explore the map, and store the data. the function Explore in this agent, also implements the ability to open doors and break rocks. If, at any point the agent sees a rock or door, and knows where a key or hammer is, it will go and try to open that door/break that rock.
+
+I implemented my iterative deepening version of depth first search to keep track of already visited nodes, to help with time complexity, however it still takes a while as the depth goes above around 20. I thought that maybe it would be effective to implement a version of Bidirectional iterative deepening depth first search. this would cut the time complexity to about half, but the problem still lies on big maps. I modified the search algorithm to be able to choose if search ignores rocks and doors or not. this is helpful because if you call search twice, once ignoring and the other time not, then you will know that there is an obstacle in your way. However this would only be effective on maps where the cheese is located in a small room blocked by a door. the version i implemented should work, it just might not be as good.
+
+I also implemented the Planning agent to work on maps that are larger than the normal size, however to do this, you must go into the code, and change the variables gridXSize, and gridYSize. These values need to be set to a values that is > than double the actual grid size. these variables are at line 28 and 29, initially set to 60 and 40.
+
+although the planning portion is not the most optimal, it does solve a good amount of worlds. the planning portion will solve obstacles at any point if it is able to, and then continue to explore once its finished. I did find that there are certain bugs in my code, that break on certain maps, but i can not quite figure out why, for example, my code breaks on the map worlds/tw22, as well as some other maps. what will happen is my search algorithm will go into infinite search, and i don’t know why its not searching. it works most of the time, but every once and a while, the agent will be in a certain orientation where it hits this bug and breaks.
+
+in order to add more Objects to this PlanningAgent, consider adding things to the following lines, and look at comments to see what to do exactly. must know the String representation of the object you wish to add, as well as the int values of those string(important for the buffered reader when processing retinal fields). 
+see the following lines of code for more details.
+47-49
+300-326
+370-374
+517-520 <need to know the int value of the strings implemented.>
+667-670
